@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 
 export const FavouritesContext = createContext();
 
-export const FacouritesContextProvider = ({ children }) => {
+export const FavouritesContextProvider = ({ children }) => {
   const [favourites, setFavourutes] = useState([]);
 
   const add = (restaurant) => {
