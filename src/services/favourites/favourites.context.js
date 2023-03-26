@@ -3,21 +3,23 @@ import React, { createContext, useState } from "react";
 export const FavouritesContext = createContext();
 
 export const FavouritesContextProvider = ({ children }) => {
-  const [favourites, setFavourutes] = useState([]);
+  const [favourites, setFavourites] = useState([]);
 
   const add = (restaurant) => {
-    setFavourutes([...favourites, restaurant]);
+    setFavourites([...favourites, restaurant]);
   };
 
   const remove = (restaurant) => {
-    const newFavourites = favourites.filler(
+    const newFavourites = favourites.filter(
       (x) => x.placeId !== restaurant.placeId
     );
-    setFavourutes(newFavourites);
+
+    setFavourites(newFavourites);
   };
   return (
     <FavouritesContext.Provider
       value={{
+        favourites,
         addToFavourites: add,
         removeFromFavourites: remove,
       }}
