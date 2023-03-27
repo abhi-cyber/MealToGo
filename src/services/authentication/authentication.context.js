@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 
 export const AuthenticationContext = createContext();
@@ -37,6 +38,7 @@ export const AuthenticationContextProvider = ({ children }) => {
   };
 
   const onRegister = (email, password, repeatedPassword) => {
+    setIsLoading(true);
     if (password !== repeatedPassword) {
       setError("Error: PAsswords do not match");
       return;
@@ -52,6 +54,17 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
+  const onLogout = () => {
+    setUser(null);
+    signOut(auth)
+      .then(() => {
+        console.log("successful");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <AuthenticationContext.Provider
       value={{
@@ -61,6 +74,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         error,
         onLogin,
         onRegister,
+        onLogout,
       }}
     >
       {children}
