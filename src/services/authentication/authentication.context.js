@@ -60,8 +60,8 @@ export const AuthenticationContextProvider = ({ children }) => {
       .then(() => {
         console.log("successful");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
       });
   };
 
