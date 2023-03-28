@@ -14,14 +14,23 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abhicyber.MealToGo"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo_foreground.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.abhicyber.MealToGo"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ed21ea63-224d-4cca-94f1-2a54fa939cb9"
       }
     }
   }
